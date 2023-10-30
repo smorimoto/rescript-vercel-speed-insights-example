@@ -1,0 +1,19 @@
+{
+  "name": "rescript-vercel-speed-insights-example",
+  "version": "0.0.0",
+  "bs-dependencies": ["@rescript/react", "rescript-webapi"],
+  "bsc-flags": ["-open Belt"],
+  "jsx": {
+    "mode": "automatic",
+    "version": 4
+  },
+  "package-specs": {
+    "in-source": true,
+    "module": "es6"
+  },
+  "sources": {
+    "dir": "src",
+    "subdirs": true
+  },
+  "suffix": ".bs.js"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "rescript-vercel-speed-insights-example",
+  "version": "0.0.0",
+  "private": true,
+  "license": "ISC",
+  "author": "Sora Morimoto <sora@morimoto.io>",
+  "scripts": {
+    "build": "rescript clean && vite build",
+    "dev": "vite",
+    "format": "prettier --write . && rescript format -all"
+  },
+  "dependencies": {
+    "modern-css-reset": "1.4.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "web-vitals": "3.5.0"
+  },
+  "devDependencies": {
+    "@jihchi/vite-plugin-rescript": "5.3.1",
+    "@rescript/react": "0.11.0",
+    "@types/node": "20.8.9",
+    "lightningcss": "1.22.0",
+    "prettier": "3.0.3",
+    "prettier-plugin-packagejson": "2.4.6",
+    "rescript": "10.1.4",
+    "rescript-webapi": "0.9.0",
+    "typescript": "5.2.2",
+    "vite": "4.5.0"
+  },
+  "packageManager": "yarn@4.0.1"
+}
