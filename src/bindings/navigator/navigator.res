@@ -1,6 +1,6 @@
 // [info] https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation
 @unboxed
-type networkInformation = {effectiveType: option<string>}
+type networkInformation = {effectiveType?: string}
 
 // [info] https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection
 @scope("navigator") @val @return(nullable)
