@@ -1,8 +1,9 @@
 // [info] https://developer.mozilla.org/en-US/docs/Web/API/NetworkInformation
+@unboxed
 type networkInformation = {effectiveType: option<string>}
 
 // [info] https://developer.mozilla.org/en-US/docs/Web/API/Navigator/connection
-@val @scope("navigator") @return(nullable)
+@scope("navigator") @val @return(nullable)
 external connection: option<networkInformation> = "connection"
 
 // [info] https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon

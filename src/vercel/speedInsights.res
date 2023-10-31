@@ -1,3 +1,6 @@
+@inline
+let endpoint = "https://vitals.vercel-insights.com/v1/vitals"
+
 let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
   let body = {
     let speed = {
@@ -25,8 +28,8 @@ let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
   switch Process.Env.vercelAnalyticsId {
   | Some(_) =>
     switch Process.Env.vercelEnv {
-    | Some(#production)
-    | Some(#preview) =>
+    | Some(Production)
+    | Some(Preview) =>
       let blob = {
         let blobPart =
           body
@@ -40,23 +43,25 @@ let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
         )
         Webapi.Blob.makeWithOptions([blobPart], blobPropertyBag)
       }
-      Navigator.sendBeacon(~url="https://vitals.vercel-insights.com/v1/vitals", ~data=blob)
+      Navigator.sendBeacon(~url=endpoint, ~data=blob)
     | Some(_)
     | None => {
         let vercelEnv = Process.Env.vercelEnv->Option.getUnsafe->Process.Env.vercelEnvToJs
-        Js.log(`[analytics] invalid value for the environment variable VERCEL_ENV: "${vercelEnv}"`)
+        Js.Console.error(
+          `[analytics] invalid value for the environment variable VERCEL_ENV: "${vercelEnv}"`,
+        )
       }
     }
   | None => {
       let vercelAnalyticsId = Process.Env.vercelAnalyticsId->Option.getUnsafe
       let json = {
-        let toString = (. value) => Js.Json.string(value)
+        let toString = value => Js.Json.string(value)
         Js.Dict.map(toString, body)->Js.Json.object_
       }
-      Js.log(
+      Js.Console.error(
         `[analytics] invalid value for the environment variable VERCEL_ANALYTICS_ID: "${vercelAnalyticsId}"`,
       )
-      Js.log(Js.Json.stringifyWithSpace(json, 2))
+      Js.Console.error(Js.Json.stringifyWithSpace(json, 2))
     }
   }
 }
@@ -70,6 +75,6 @@ let webVitals = () => {
     WebVitals.onLCP(metric => sendToVercelAnalytics(~metric))
     WebVitals.onTTFB(metric => sendToVercelAnalytics(~metric))
   } catch {
-  | error => Js.log(error)
+  | error => Js.Console.error(error)
   }
 }
