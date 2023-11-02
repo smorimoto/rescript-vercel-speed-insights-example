@@ -16,9 +16,7 @@ function createManualChunks(
 }
 
 export default defineConfig({
-  base: process.env.CI
-    ? "https://smorimoto.github.io/rescript-vercel-speed-insights-example/"
-    : "/",
+  base: process.env.CI ? "/rescript-vercel-speed-insights-example/" : "/",
   build: {
     cssMinify: "lightningcss",
     rollupOptions: {
