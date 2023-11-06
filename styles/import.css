@@ -1,1 +1,5 @@
 @import "modern-css-reset";
+
+* {
+  font-family: system-ui;
+}
