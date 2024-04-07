@@ -42,7 +42,7 @@ export default defineConfig({
     ),
     "import.meta.env.VERCEL_ENV": JSON.stringify(process.env.VERCEL_ENV),
   },
-  plugins: [rescript(), ViteEjsPlugin()],
+  plugins: [rescript({ silent: true }), ViteEjsPlugin()],
   server: {
     port: 3000,
   },
