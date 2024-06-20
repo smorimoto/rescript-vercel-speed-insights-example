@@ -27,7 +27,7 @@
     "react-devtools": "5.2.0",
     "rescript": "11.1.1",
     "rescript-webapi": "0.9.1",
-    "typescript": "5.4.5",
+    "typescript": "5.5.2",
     "vite": "5.3.1",
     "vite-plugin-ejs": "1.7.0"
   },
