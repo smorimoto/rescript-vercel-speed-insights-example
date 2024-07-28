@@ -480,6 +480,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/strictest@npm:2.0.5":
+  version: 2.0.5
+  resolution: "@tsconfig/strictest@npm:2.0.5"
+  checksum: 10c0/cfc86da2d57f7b4b0827701b132c37a4974284e5c40649656c0e474866dfd8a69f57c6718230d8a8139967e2a95438586b8224c13ab0ff9d3a43eda771c50cc4
+  languageName: node
+  linkType: hard
+
 "@types/cacheable-request@npm:^6.0.1":
   version: 6.0.3
   resolution: "@types/cacheable-request@npm:6.0.3"
@@ -2620,6 +2627,7 @@ __metadata:
     "@jihchi/vite-plugin-rescript": "npm:6.0.0"
     "@rescript/core": "npm:1.5.2"
     "@rescript/react": "npm:0.13.0"
+    "@tsconfig/strictest": "npm:2.0.5"
     "@types/node": "npm:22.0.0"
     lightningcss: "npm:1.25.1"
     modern-css-reset: "npm:1.4.0"

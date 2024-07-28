@@ -2,7 +2,7 @@ import * as process from "node:process";
 
 import rescript from "@jihchi/vite-plugin-rescript";
 import { defineConfig } from "vite";
-import { ViteEjsPlugin } from "vite-plugin-ejs";
+import { ViteEjsPlugin as ejs } from "vite-plugin-ejs";
 
 import { dependencies } from "./package.json";
 
@@ -12,10 +12,13 @@ function createManualChunks(
   const ignore = new Set(["react", "react-dom", "modern-css-reset"]);
   const chunks = Object.keys(deps)
     .filter((dep) => !ignore.has(dep))
-    .reduce((acc, dep) => {
-      acc[dep] = [dep];
-      return acc;
-    }, {});
+    .reduce(
+      (acc, dep) => {
+        acc[dep] = [dep];
+        return acc;
+      },
+      {} as Record<string, string[]>,
+    );
   return chunks;
 }
 
@@ -42,7 +45,7 @@ export default defineConfig({
     ),
     "import.meta.env.VERCEL_ENV": JSON.stringify(process.env.VERCEL_ENV),
   },
-  plugins: [rescript({ silent: true }), ViteEjsPlugin()],
+  plugins: [rescript({ silent: true }), ejs()],
   server: {
     port: 3000,
   },
