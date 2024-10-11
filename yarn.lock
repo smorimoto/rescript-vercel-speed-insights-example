@@ -2645,7 +2645,7 @@ __metadata:
     react-devtools: "npm:6.0.0"
     react-dom: "npm:18.3.1"
     rescript: "npm:12.0.0-alpha.3"
-    rescript-webapi: "npm:0.9.1"
+    rescript-webapi: "npm:0.10.0"
     typescript: "npm:5.6.3"
     vite: "npm:5.4.8"
     vite-plugin-ejs: "npm:1.7.0"
@@ -2653,10 +2653,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"rescript-webapi@npm:0.9.1":
-  version: 0.9.1
-  resolution: "rescript-webapi@npm:0.9.1"
-  checksum: 10c0/1482e542322b54d62f0d6928c3c68eb24f4cbeee4874c853c6c7415a1c04ae4e15f1e92107f66dcfc4ab35ab0754c82122c0207a816ff9b206aab0435915d475
+"rescript-webapi@npm:0.10.0":
+  version: 0.10.0
+  resolution: "rescript-webapi@npm:0.10.0"
+  checksum: 10c0/e7511c8168cb9586d8aa1483131e397b6a245addf05410e107e014f8a6766ed919a87b8ae1c5dcf040f9d08d93940014371bd7cab43f9b97bde05e2cad536c63
   languageName: node
   linkType: hard
 
