@@ -333,15 +333,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rescript/core@npm:1.6.1":
-  version: 1.6.1
-  resolution: "@rescript/core@npm:1.6.1"
-  peerDependencies:
-    rescript: ">=11.1.0"
-  checksum: 10c0/04e7fc14dc050de0a9da8eb0642fb0800bc80c8978ef79aada1823bc2080b47a4d40c1168c63b53642009935342a4feb833fc190a71aa45e83af5d896269b95d
-  languageName: node
-  linkType: hard
-
 "@rescript/react@npm:0.13.0":
   version: 0.13.0
   resolution: "@rescript/react@npm:0.13.0"
@@ -532,9 +523,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^16.11.26":
-  version: 16.18.114
-  resolution: "@types/node@npm:16.18.114"
-  checksum: 10c0/38391d08cd795857a664c8c26e0c722d386255e5d19770faec9a9b475c27b5502aee8ba5b159052c840a6bff715ac27e7329ba4df360e56cf0354137024f1f1d
+  version: 16.18.115
+  resolution: "@types/node@npm:16.18.115"
+  checksum: 10c0/5e249e27f6c3d7666cb76c7634009d0a4846d6e778c2c0b87c9d182de43ef81300bf022fa1785f909f11467115063762646025289df0c2b6b6b942be64b4014f
   languageName: node
   linkType: hard
 
@@ -2635,7 +2626,6 @@ __metadata:
   dependencies:
     "@biomejs/biome": "npm:1.9.4"
     "@jihchi/vite-plugin-rescript": "npm:6.0.0"
-    "@rescript/core": "npm:1.6.1"
     "@rescript/react": "npm:0.13.0"
     "@tsconfig/strictest": "npm:2.0.5"
     "@types/node": "npm:22.7.9"

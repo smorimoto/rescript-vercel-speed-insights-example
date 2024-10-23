@@ -1,7 +1,6 @@
 {
   "name": "rescript-vercel-speed-insights-example",
-  "bs-dependencies": ["@rescript/core", "@rescript/react", "rescript-webapi"],
-  "bsc-flags": ["-open RescriptCore"],
+  "bs-dependencies": ["@rescript/react", "rescript-webapi"],
   "jsx": {
     "mode": "automatic",
     "version": 4
