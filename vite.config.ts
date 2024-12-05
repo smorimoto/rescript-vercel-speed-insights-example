@@ -1,40 +1,11 @@
 import * as process from "node:process";
-
 import rescript from "@jihchi/vite-plugin-rescript";
 import { defineConfig } from "vite";
-import { ViteEjsPlugin as ejs } from "vite-plugin-ejs";
-
-import { dependencies } from "./package.json";
-
-function createManualChunks(
-  deps: Record<string, string>,
-): Record<string, string[]> {
-  const ignore = new Set(["react", "react-dom", "modern-css-reset"]);
-  const chunks = Object.keys(deps)
-    .filter((dep) => !ignore.has(dep))
-    .reduce(
-      (acc, dep) => {
-        acc[dep] = [dep];
-        return acc;
-      },
-      {} as Record<string, string[]>,
-    );
-  return chunks;
-}
 
 export default defineConfig({
   base: process.env.CI ? "/rescript-vercel-speed-insights-example/" : "/",
   build: {
     cssMinify: "lightningcss",
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          ...createManualChunks(dependencies),
-        },
-      },
-    },
-    target: "esnext",
   },
   css: {
     transformer: "lightningcss",
@@ -45,7 +16,7 @@ export default defineConfig({
     ),
     "import.meta.env.VERCEL_ENV": JSON.stringify(process.env.VERCEL_ENV),
   },
-  plugins: [rescript({ silent: true }), ejs()],
+  plugins: [rescript({ silent: true })],
   server: {
     port: 3000,
   },
