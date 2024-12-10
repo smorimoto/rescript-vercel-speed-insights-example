@@ -3,5 +3,6 @@
 /lib/
 /node_modules/
 
+.env
 .merlin
 *.res.mjs*
