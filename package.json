@@ -27,7 +27,7 @@
     "rescript": "12.0.0-alpha.6",
     "rescript-webapi": "0.10.0",
     "typescript": "5.7.2",
-    "vite": "6.0.6"
+    "vite": "6.0.7"
   },
   "packageManager": "yarn@4.6.0"
 }
