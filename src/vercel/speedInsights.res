@@ -47,9 +47,7 @@ let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
     | Some(_)
     | None => {
         let vercelEnv = Process.Env.vercelEnv->Option.getUnsafe->Process.Env.vercelEnvToJs
-        Js.Console.error(
-          `[analytics] invalid value for the environment variable VERCEL_ENV: "${vercelEnv}"`,
-        )
+        `[analytics] invalid value for the environment variable VERCEL_ENV: "${vercelEnv}"`->Js.Console.error
       }
     }
   | None => {
@@ -58,10 +56,8 @@ let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
         let toString = value => Js.Json.string(value)
         Js.Dict.map(toString, body)->Js.Json.object_
       }
-      Js.Console.error(
-        `[analytics] invalid value for the environment variable VERCEL_ANALYTICS_ID: "${vercelAnalyticsId}"`,
-      )
-      Js.Console.error(Js.Json.stringifyWithSpace(json, 2))
+      `[analytics] invalid value for the environment variable VERCEL_ANALYTICS_ID: "${vercelAnalyticsId}"`->Js.Console.error
+      Js.Json.stringifyWithSpace(json, 2)->Js.Console.error
     }
   }
 }
@@ -75,6 +71,6 @@ let webVitals = () => {
     WebVitals.onLCP(metric => sendToVercelAnalytics(~metric))
     WebVitals.onTTFB(metric => sendToVercelAnalytics(~metric))
   } catch {
-  | error => Js.Console.error(error)
+  | error => error->Js.Console.error
   }
 }
