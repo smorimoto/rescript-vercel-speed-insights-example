@@ -1,0 +1,6 @@
+[tools]
+node = "25"
+yarn = "4.13.0"
+
+[env]
+_.file = ".env"
