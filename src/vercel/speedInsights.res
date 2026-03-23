@@ -13,15 +13,15 @@ let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
       | None => ""
       }
     }
-    let body = Js.Dict.empty()
+    let body = Dict.make()
     // [info] https://vercel.com/docs/speed-insights/api#vitals/measure-web-vitals/body-parameters
-    body->Js.Dict.set("dsn", Process.Env.vercelAnalyticsId->Option.getUnsafe)
-    body->Js.Dict.set("event_name", metric.name)
-    body->Js.Dict.set("href", Webapi.Dom.location->Webapi.Dom.Location.href)
-    body->Js.Dict.set("id", metric.id)
-    body->Js.Dict.set("page", Webapi.Dom.location->Webapi.Dom.Location.pathname)
-    body->Js.Dict.set("speed", speed)
-    body->Js.Dict.set("value", metric.value->Float.toString)
+    body->Dict.set("dsn", Process.Env.vercelAnalyticsId->Option.getUnsafe)
+    body->Dict.set("event_name", metric.name)
+    body->Dict.set("href", Webapi.Dom.location->Webapi.Dom.Location.href)
+    body->Dict.set("id", metric.id)
+    body->Dict.set("page", Webapi.Dom.location->Webapi.Dom.Location.pathname)
+    body->Dict.set("speed", speed)
+    body->Dict.set("value", metric.value->Float.toString)
     body
   }
 
@@ -47,17 +47,17 @@ let sendToVercelAnalytics = (~metric: WebVitals.metric) => {
     | Some(_)
     | None => {
         let vercelEnv = Process.Env.vercelEnv->Option.getUnsafe->Process.Env.vercelEnvToJs
-        `[analytics] invalid value for the environment variable VERCEL_ENV: "${vercelEnv}"`->Js.Console.error
+        `[analytics] invalid value for the environment variable VERCEL_ENV: "${vercelEnv}"`->Console.error
       }
     }
   | None => {
       let vercelAnalyticsId = Process.Env.vercelAnalyticsId->Option.getUnsafe
       let json = {
-        let toString = value => Js.Json.string(value)
-        Js.Dict.map(toString, body)->Js.Json.object_
+        let toString = value => JSON.Encode.string(value)
+        Dict.mapValues(body, toString)->JSON.Encode.object
       }
-      `[analytics] invalid value for the environment variable VERCEL_ANALYTICS_ID: "${vercelAnalyticsId}"`->Js.Console.error
-      Js.Json.stringifyWithSpace(json, 2)->Js.Console.error
+      `[analytics] invalid value for the environment variable VERCEL_ANALYTICS_ID: "${vercelAnalyticsId}"`->Console.error
+      JSON.stringify(json, ~space=2)->Console.error
     }
   }
 }
@@ -66,11 +66,10 @@ let webVitals = () => {
   try {
     WebVitals.onCLS(metric => sendToVercelAnalytics(~metric))
     WebVitals.onFCP(metric => sendToVercelAnalytics(~metric))
-    WebVitals.onFID(metric => sendToVercelAnalytics(~metric))
     WebVitals.onINP(metric => sendToVercelAnalytics(~metric))
     WebVitals.onLCP(metric => sendToVercelAnalytics(~metric))
     WebVitals.onTTFB(metric => sendToVercelAnalytics(~metric))
   } catch {
-  | error => error->Js.Console.error
+  | error => error->Console.error
   }
 }

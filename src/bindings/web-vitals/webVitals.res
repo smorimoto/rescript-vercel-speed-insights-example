@@ -11,9 +11,6 @@ external onCLS: (metric => unit) => unit = "onCLS"
 external onFCP: (metric => unit) => unit = "onFCP"
 
 @module("web-vitals")
-external onFID: (metric => unit) => unit = "onFID"
-
-@module("web-vitals")
 external onINP: (metric => unit) => unit = "onINP"
 
 @module("web-vitals")

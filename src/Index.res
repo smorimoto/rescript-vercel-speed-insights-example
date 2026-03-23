@@ -8,7 +8,7 @@ let () = {
         <App />
       </React.StrictMode>,
     )
-  | None => "Root element not found - unable to initialise the application"->Js.Console.error
+  | None => "Root element not found - unable to initialise the application"->Console.error
   }
 }
 
