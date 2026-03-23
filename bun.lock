@@ -23,7 +23,6 @@
         "rescript-webapi": "0.10.0",
         "tailwindcss": "4.2.2",
         "typescript": "6.0.2",
-        "vite": "npm:@voidzero-dev/vite-plus-core@latest",
         "vite-plus": "0.1.13",
       },
     },
