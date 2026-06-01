@@ -30,7 +30,7 @@
     "rescript-webapi": "0.10.0",
     "tailwindcss": "4.3.0",
     "typescript": "6.0.3",
-    "vite-plus": "0.1.23"
+    "vite-plus": "0.1.24"
   },
   "overrides": {
     "vite": "npm:@voidzero-dev/vite-plus-core@latest"
