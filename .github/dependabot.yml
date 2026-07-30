@@ -1,0 +1,37 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
+    groups:
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-scan"
+          - "@react-scan/*"
+      rescript:
+        patterns:
+          - "rescript"
+          - "rescript-*"
+          - "@rescript/*"
+          - "@jihchi/vite-plugin-rescript"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns:
+          - "*"
