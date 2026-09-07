@@ -12,11 +12,11 @@
     "lint": "vp check && rescript format --check"
   },
   "dependencies": {
-    "@rescript/runtime": "12.3.0",
+    "@rescript/runtime": "12.3.1",
     "modern-css-reset": "1.4.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",
-    "web-vitals": "6.0.1"
+    "web-vitals": "6.2.1"
   },
   "devDependencies": {
     "@jihchi/vite-plugin-rescript": "8.0.0-beta.2",
@@ -24,15 +24,15 @@
     "@rescript/react": "0.15.0",
     "@tailwindcss/vite": "4.3.3",
     "@tsconfig/strictest": "2.0.8",
-    "@types/node": "26.1.2",
+    "@types/node": "26.4.1",
     "react-scan": "0.5.7",
-    "rescript": "12.3.0",
+    "rescript": "12.3.1",
     "rescript-webapi": "0.10.0",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
-    "vite-plus": "0.2.6"
+    "vite-plus": "0.3.0"
   },
   "overrides": {
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.2.6"
+    "vite": "npm:@voidzero-dev/vite-plus-core@0.3.0"
   }
 }
